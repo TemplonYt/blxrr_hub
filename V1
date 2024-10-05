@@ -1,0 +1,41 @@
+--Variables
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("Blxrr Script", "BloodTheme")
+
+
+Window:NewKeybind("Opens", "Opens", Enum.KeyCode.Equals, function()
+	Library:ToggleUI()
+end)
+
+
+--BloxFruits
+if game.PlaceId == 2753915549 then
+	local BloxFruitsWindow = Window:NewTab("Blox Fruits")
+	
+	--Sections
+	local GrindingSection = BloxFruitsWindow:NewSection("Grinding")
+	local PlayerAttributes = BloxFruitsWindow:NewSection("Player Attributes")
+	
+	
+	--Grinding
+	GrindingSection:NewButton("ButtonText", "ButtonInfo", function()
+
+	end)
+	
+	
+	--PlayerAtts
+	PlayerAttributes:NewSlider("WalkSpeed", "SliderInfo", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+	end)
+	
+	PlayerAttributes:NewSlider("JumpPower", "SliderInfo", 200, 0, function(s) -- 200 (MaxValue) | 0 (MinValue)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+	end)
+
+
+	PlayerAttributes:NewSlider("JumpHeight", "SliderInfo", 50, 0, function(s) -- 50 (MaxValue) | 0 (MinValue)
+		game.Players.LocalPlayer.Character.Humanoid.JumpHeight = s
+	end)
+end
